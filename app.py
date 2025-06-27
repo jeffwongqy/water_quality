@@ -5,10 +5,7 @@ import numpy as np
 # load the histogram gradient-boosting model
 with open("hgbc_model.pkl", "rb") as model_file:
     hgbc_model = pickle.load(model_file)
-
-<<<<<<< Updated upstream
-# load the scaler 
-=======
+ 
 # load the random forest model 
 with open("rfc_model.pkl", "rb") as model_file:
     rfc_model = pickle.load(model_file)
@@ -22,7 +19,6 @@ with open("gbc_model.pkl", "rb") as model_file:
     gbc_model = pickle.load(model_file)
 
 # load the scaler
->>>>>>> Stashed changes
 with open("scaler.pkl", "rb") as scaler_file:
     scaler = pickle.load(scaler_file)
 
@@ -32,7 +28,7 @@ st.markdown("""
     Complete the following: 
 """)
 
-# input features
+# prompt for user input features
 pH = st.number_input("pH:", value = 0.0, format = "%.6f")
 hardness = st.number_input("Hardness: ", value = 0.0, format = "%.6f")
 sulfate = st.number_input("Sulfate", value = 0.0, format = "%.6f")
@@ -40,12 +36,13 @@ chloramines = st.number_input("Chloramines", value = 0.0, format = "%.6f")
 
 # prompt the user to choose the model 
 modelSelection = st.selectbox("Choose ONE classifier to predict the water potability:", ("Random Forest", "Extra Trees", "Gradient Boosting", "Histogram Gradient Boosting"))
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 if st.button("Predict"):
     input_data = np.array([[pH, hardness, sulfate, chloramines]])
     scaled_input = scaler.transform(input_data)
-    st.write(scaled_input)
-    prediction = model.predict(scaled_input)[0]
-    proba = model.predict_proba(scaled_input)[0]
     
     st.success("Prediction: {}".format(prediction))
     st.write("Class Probabilities: ")

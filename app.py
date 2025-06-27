@@ -6,9 +6,6 @@ import numpy as np
 with open("hgbc_model.pkl", "rb") as model_file:
     hgbc_model = pickle.load(model_file)
 
-<<<<<<< Updated upstream
-# load the scaler 
-=======
 # load the random forest model 
 with open("rfc_model.pkl", "rb") as model_file:
     rfc_model = pickle.load(model_file)
@@ -22,11 +19,13 @@ with open("gbc_model.pkl", "rb") as model_file:
     gbc_model = pickle.load(model_file)
 
 # load the scaler
->>>>>>> Stashed changes
 with open("scaler.pkl", "rb") as scaler_file:
     scaler = pickle.load(scaler_file)
 
 st.title("Machine Learning XAI-based Water Quality Assessment")
+
+# add image
+st.image("water.jpg")
 
 st.markdown("""
     Complete the following: 
@@ -43,10 +42,7 @@ modelSelection = st.selectbox("Choose ONE classifier to predict the water potabi
 if st.button("Predict"):
     input_data = np.array([[pH, hardness, sulfate, chloramines]])
     scaled_input = scaler.transform(input_data)
-    st.write(scaled_input)
-    prediction = model.predict(scaled_input)[0]
-    proba = model.predict_proba(scaled_input)[0]
-    
+   
     # perform predictions
     if modelSelection == "Random Forest": 
         prediction = rfc_model.predict(scaled_input)[0]

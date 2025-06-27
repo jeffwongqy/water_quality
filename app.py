@@ -38,6 +38,8 @@ hardness = st.number_input("Hardness: ", value = 0.0, format = "%.6f")
 sulfate = st.number_input("Sulfate", value = 0.0, format = "%.6f")
 chloramines = st.number_input("Chloramines", value = 0.0, format = "%.6f")
 
+# prompt the user to choose the model 
+modelSelection = st.selectbox("Choose ONE classifier to predict the water potability:", ("Random Forest", "Extra Trees", "Gradient Boosting", "Histogram Gradient Boosting"))
 if st.button("Predict"):
     input_data = np.array([[pH, hardness, sulfate, chloramines]])
     scaled_input = scaler.transform(input_data)

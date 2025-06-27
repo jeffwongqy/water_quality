@@ -47,7 +47,20 @@ if st.button("Predict"):
     prediction = model.predict(scaled_input)[0]
     proba = model.predict_proba(scaled_input)[0]
     
-    st.success("Prediction: {}".format(prediction))
-    st.write("Class Probabilities: ")
-    for i, p in enumerate(proba):
-        st.write("Class {}: {:.4f}".format(i, p))
+    # perform predictions
+    if modelSelection == "Random Forest": 
+        prediction = rfc_model.predict(scaled_input)[0]
+        proba = rfc_model.predict_proba(scaled_input)[0]
+        st.success("Prediction: {}".format(prediction))
+    elif modelSelection == "Extra Trees":
+        prediction = etc_model.predict(scaled_input)[0]
+        proba = etc_model.predict_proba(scaled_input)[0]
+        st.success("Prediction: {}".format(prediction))
+    elif modelSelection == "Gradient Boosting":
+        prediction = gbc_model.predict(scaled_input)[0]
+        proba = gbc_model.predict_proba(scaled_input)[0]
+        st.success("Prediction: {}".format(prediction))
+    elif modelSelection == "Histogram Gradient Boosting":
+        prediction = gbc_model.predict(scaled_input)[0]
+        proba = gbc_model.predict_proba(scaled_input)[0]
+        st.success("Prediction: {}".format(prediction))

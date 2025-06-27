@@ -34,7 +34,7 @@ st.markdown("""
 
 # input features
 pH = st.number_input("pH:", value = 0.0, format = "%.6f")
-total_dissolved_solids = st.number_input("Total Dissolved Solids: ", value = 0.0, format = "%.6f")
+hardness = st.number_input("Hardness: ", value = 0.0, format = "%.6f")
 sulfate = st.number_input("Sulfate", value = 0.0, format = "%.6f")
 chloramines = st.number_input("Chloramines", value = 0.0, format = "%.6f")
 

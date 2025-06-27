@@ -39,7 +39,7 @@ sulfate = st.number_input("Sulfate", value = 0.0, format = "%.6f")
 chloramines = st.number_input("Chloramines", value = 0.0, format = "%.6f")
 
 if st.button("Predict"):
-    input_data = np.array([[pH, total_dissolved_solids, sulfate, chloramines]])
+    input_data = np.array([[pH, hardness, sulfate, chloramines]])
     scaled_input = scaler.transform(input_data)
     st.write(scaled_input)
     prediction = model.predict(scaled_input)[0]
